@@ -171,4 +171,5 @@ fun rookOrBishopThreatens(
 fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int {
     if ((b < c) || (a > d)) return -1
     return (min(b,d) - max(a,c))
+
 }
