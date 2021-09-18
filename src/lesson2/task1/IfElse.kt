@@ -70,14 +70,13 @@ fun minBiRoot(a: Double, b: Double, c: Double): Double {
  * Мой возраст. Для заданного 0 < n < 200, рассматриваемого как возраст человека,
  * вернуть строку вида: «21 год», «32 года», «12 лет».
  */
-fun ageDescription(age: Int): String {
-    return when{
-        age / 10 % 10 == 1 -> "$age лет"
-        age % 10 == 1 -> "$age год"
-        age / 10 % 10 == 9 -> "$age лет"
-        else -> "$age года"
-    }
+fun ageDescription(age: Int): String = when {
+    age / 10 % 10 == 1 -> "$age лет"
+    age % 10 == 1 -> "$age год"
+    age / 10 % 10 >= 5 -> "$age лет"
+    else -> "$age года"
 }
+
 
 /**
  * Простая (2 балла)
@@ -94,13 +93,11 @@ fun timeForHalfWay(
     val s: Double = t1 * v1 + t2 * v2 + t3 * v3
     return when {
         (t1 * v1) >= s / 2 -> (s / 2) / v1
-        (t1 * v1 + t2 * v2) >= s / 2 -> (s/2 - t1 * v1) / v2 + t1
+        (t1 * v1 + t2 * v2) >= s / 2 -> (s / 2 - t1 * v1) / v2 + t1
         else -> (s / 2 - t1 * v1 - t2 * v2) / v3 + t1 + t2
 
     }
 }
-
-
 
 
 /**
@@ -117,9 +114,9 @@ fun whichRookThreatens(
     rookX1: Int, rookY1: Int,
     rookX2: Int, rookY2: Int
 ): Int {
-    val Threatens1=(kingX==rookX1) || (kingY==rookY1)
-    val Threatens2=(kingX==rookX2) || (kingY==rookY2)
-    return when{
+    val Threatens1 = (kingX == rookX1) || (kingY == rookY1)
+    val Threatens2 = (kingX == rookX2) || (kingY == rookY2)
+    return when {
         Threatens1 && Threatens2 -> 3
         Threatens1 -> 1
         Threatens2 -> 2
@@ -141,23 +138,19 @@ fun whichRookThreatens(
 fun rookOrBishopThreatens(
     kingX: Int, kingY: Int,
     rookX: Int, rookY: Int,
-    bishopX: Int, bishopY: Int): Int = TODO()
+    bishopX: Int, bishopY: Int
+): Int = TODO()
 
 
-
-
-
-
-
-    /**
-     * Простая (2 балла)
-     *
-     * Треугольник задан длинами своих сторон a, b, c.
-     * Проверить, является ли данный треугольник остроугольным (вернуть 0),
-     * прямоугольным (вернуть 1) или тупоугольным (вернуть 2).
-     * Если такой треугольник не существует, вернуть -1.
-     */
-    fun triangleKind(a: Double, b: Double, c: Double): Int = TODO()
+/**
+ * Простая (2 балла)
+ *
+ * Треугольник задан длинами своих сторон a, b, c.
+ * Проверить, является ли данный треугольник остроугольным (вернуть 0),
+ * прямоугольным (вернуть 1) или тупоугольным (вернуть 2).
+ * Если такой треугольник не существует, вернуть -1.
+ */
+fun triangleKind(a: Double, b: Double, c: Double): Int = TODO()
 
 
 /**
@@ -170,6 +163,6 @@ fun rookOrBishopThreatens(
  */
 fun segmentLength(a: Int, b: Int, c: Int, d: Int): Int {
     if ((b < c) || (a > d)) return -1
-    return (min(b,d) - max(a,c))
+    return (min(b, d) - max(a, c))
 
 }
