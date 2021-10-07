@@ -92,13 +92,10 @@ fun fib(n: Int): Int {
     var prevNum = 1
     var num = 2
     if (n < 3) return 1
-    else {
-        for (i in 3 until n) {
-            prevPrevNum = prevNum
-            prevNum = num
-            num = prevPrevNum + prevNum
-        }
-
+    for (i in 3 until n) {
+        prevPrevNum = prevNum
+        prevNum = num
+        num = prevPrevNum + prevNum
     }
     return num
 }

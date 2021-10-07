@@ -85,8 +85,7 @@ fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean {
     val minwall = min(r, s)
     val maxbrick = maxOf(a, b, c)
     val minbrick = minOf(a, b, c)
-    return when {
-        (a + b + c - minbrick - maxbrick) <= maxwall && (minbrick <= minwall) -> true
-        else -> false
-    }
+    if ((a + b + c - minbrick - maxbrick) <= maxwall && (minbrick <= minwall)) return true
+    else return false
+
 }
