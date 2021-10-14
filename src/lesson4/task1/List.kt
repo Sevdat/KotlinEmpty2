@@ -120,20 +120,16 @@ fun buildSumExample(list: List<Int>) = list.joinToString(separator = " + ", post
  * по формуле abs = sqrt(a1^2 + a2^2 + ... + aN^2).
  * Модуль пустого вектора считать равным 0.0.
  */
-fun abs(v: List<Double>): Double {
-    return if (v.isEmpty()) 0.0
-    else sqrt(v.sumOf{ it * it})
-}
+fun abs(v: List<Double>): Double = if (v.isEmpty()) 0.0 else sqrt(v.sumOf { it * it })
+
 
 /**
  * Простая (2 балла)
  *
  * Рассчитать среднее арифметическое элементов списка list. Вернуть 0.0, если список пуст
  */
-fun mean(list: List<Double>): Double {
-    return if (list.isEmpty()) 0.0
-    else list.sum() / list.size
-}
+fun mean(list: List<Double>): Double = if (list.isEmpty()) 0.0 else list.sum() / list.size
+
 
 
 /**
@@ -175,7 +171,13 @@ fun polynom(p: List<Int>, x: Int): Int = TODO()
  *
  * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
  */
-fun accumulate(list: MutableList<Int>): MutableList<Int> = TODO()
+fun accumulate(list: MutableList<Int>): MutableList<Int> {
+    for (i in 1..list.size - 1) {
+        listOf(list[i] + list[i - 1])
+    }
+    return list
+}
+//?
 
 /**
  * Средняя (3 балла)
@@ -185,6 +187,7 @@ fun accumulate(list: MutableList<Int>): MutableList<Int> = TODO()
  * Множители в списке должны располагаться по возрастанию.
  */
 fun factorize(n: Int): List<Int> = TODO()
+
 
 /**
  * Сложная (4 балла)
