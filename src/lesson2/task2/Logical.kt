@@ -22,7 +22,7 @@ fun pointInsideCircle(x: Double, y: Double, x0: Double, y0: Double, r: Double) =
  * Четырехзначное число назовем счастливым, если сумма первых двух ее цифр равна сумме двух последних.
  * Определить, счастливое ли заданное число, вернуть true, если это так.
  */
-fun isNumberHappy(number: Int): Boolean = if (number % 10 + number / 10 % 10 == number / 100 % 10 + number / 1000)  true else  false
+fun isNumberHappy(number: Int): Boolean = (number % 10 + number / 10 % 10 == number / 100 % 10 + number / 1000)
 
 
 
@@ -64,10 +64,9 @@ fun daysInMonth(month: Int, year: Int): Int = when {
 fun circleInside(
     x1: Double, y1: Double, r1: Double,
     x2: Double, y2: Double, r2: Double
-): Boolean = when {
-    sqrt((sqr(x2 - x1)) + sqr(y2 - y1)) + r1 <= r2 -> true
-    else -> false
-}
+): Boolean =
+    sqrt((sqr(x2 - x1)) + sqr(y2 - y1)) + r1 <= r2
+
 
 
 /**
