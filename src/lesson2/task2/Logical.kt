@@ -25,9 +25,6 @@ fun pointInsideCircle(x: Double, y: Double, x0: Double, y0: Double, r: Double) =
 fun isNumberHappy(number: Int): Boolean = (number % 10 + number / 10 % 10 == number / 100 % 10 + number / 1000)
 
 
-
-
-
 /**
  * Простая (2 балла)
  *
@@ -35,9 +32,8 @@ fun isNumberHappy(number: Int): Boolean = (number % 10 + number / 10 % 10 == num
  * Определить, угрожают ли они друг другу. Вернуть true, если угрожают.
  * Считать, что ферзи не могут загораживать друг друга.
  */
-fun queenThreatens(x1: Int, y1: Int, x2: Int, y2: Int): Boolean = if (abs(x1 - x2) == abs(y1 - y2) || (x1 == x2) || (y1 == y2)) true else false
-
-
+fun queenThreatens(x1: Int, y1: Int, x2: Int, y2: Int): Boolean =
+    (abs(x1 - x2) == abs(y1 - y2) || (x1 == x2) || (y1 == y2))
 
 
 /**
@@ -68,7 +64,6 @@ fun circleInside(
     sqrt((sqr(x2 - x1)) + sqr(y2 - y1)) + r1 <= r2
 
 
-
 /**
  * Средняя (3 балла)
  *
@@ -78,14 +73,14 @@ fun circleInside(
  * кирпич 4 х 4 х 4 пройдёт через отверстие 4 х 4.
  * Вернуть true, если кирпич пройдёт
  */
+
 fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean {
     val maxwall = max(r, s)
     val minwall = min(r, s)
     val maxbrick = maxOf(a, b, c)
     val minbrick = minOf(a, b, c)
-    return ((a + b + c - minbrick - maxbrick) <= maxwall && (minbrick <= minwall)) ; true
-
-
+    return ((a + b + c - minbrick - maxbrick) <= maxwall && (minbrick <= minwall))
 }
+
 
 
