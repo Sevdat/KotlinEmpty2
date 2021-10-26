@@ -131,7 +131,6 @@ fun abs(v: List<Double>): Double = if (v.isEmpty()) 0.0 else sqrt(v.sumOf { it *
 fun mean(list: List<Double>): Double = if (list.isEmpty()) 0.0 else list.sum() / list.size
 
 
-
 /**
  * Средняя (3 балла)
  *
@@ -173,11 +172,12 @@ fun polynom(p: List<Int>, x: Int): Int = TODO()
  */
 fun accumulate(list: MutableList<Int>): MutableList<Int> {
     for (i in 1..list.size - 1) {
-        listOf(list[i] + list[i - 1])
+        list[i] += list[i - 1]
+
     }
     return list
 }
-//?
+
 
 /**
  * Средняя (3 балла)
@@ -205,7 +205,16 @@ fun factorizeToString(n: Int): String = TODO()
  * Результат перевода вернуть в виде списка цифр в base-ичной системе от старшей к младшей,
  * например: n = 100, base = 4 -> (1, 2, 1, 0) или n = 250, base = 14 -> (1, 3, 12)
  */
-fun convert(n: Int, base: Int): List<Int> = TODO()
+fun convert(n: Int, base: Int): List<Int> {
+    var m = n
+    val list = mutableListOf<Int>()
+    while (m != 0) {
+        list.add(m % base)
+        m /= base
+    }
+    return if (n == 0) listOf(0) else list.reversed()
+}
+
 
 /**
  * Сложная (4 балла)
@@ -260,4 +269,32 @@ fun roman(n: Int): String = TODO()
  * Например, 375 = "триста семьдесят пять",
  * 23964 = "двадцать три тысячи девятьсот шестьдесят четыре"
  */
-fun russian(n: Int): String = TODO()
+fun russian(n: Int): String {
+    val tens = arrayOf("", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девятьсот")
+    val secondten = arrayOf("", "одинадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать")
+    val hundreds = arrayOf("", "сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот", "восемьсот", "девятьсот")
+    val unitsF = arrayOf("", "одна", "две", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять")
+    val unitsS = arrayOf("", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять")
+    fun thousands(n: Int): String {
+        if (n / 1000 % 100 in 11..14) return "тысяч"
+        return when (n / 1000 % 10) {
+            1 -> "тысяча"
+            in 2..4 -> "тысячи"
+            else -> "тысяч"
+        }
+    }
+    val list = mutableListOf<String>()
+    list.add(hundreds[n / 100000])
+    if ((n / 10000 % 10 == 1) && (n / 1000 % 100 != 10)) list.add(secondten[n / 1000 % 10]) else {
+        list.add(tens[n / 10000 % 10])
+        list.add(unitsF[n / 1000 % 10])
+    }
+    if (n / 1000 != 0) list.add(thousands(n))
+    list.add(hundreds[n / 100 % 10])
+    if ((n / 10 % 10 == 1) && (n % 100 != 10)) list.add(secondten[n % 10]) else {
+        list.add(tens[n / 10 % 10])
+        list.add(unitsS[n % 10])
+    }
+    list.removeIf { it.isEmpty() }
+    return list.joinToString(separator = " ")
+}
