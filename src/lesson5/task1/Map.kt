@@ -109,7 +109,9 @@ fun buildGrades(grades: Map<String, Int>): Map<Int, List<String>> = TODO()
  *   containsIn(mapOf("a" to "z"), mapOf("a" to "zee", "b" to "sweet")) -> false
  */
 fun containsIn(a: Map<String, String>, b: Map<String, String>): Boolean {
-    for ((key, value) in a) if (value != b[key]) return false
+    for ((key, value) in a) {
+        if (value != b[key]) return false
+    }
     return true
 }
 
@@ -197,7 +199,8 @@ fun findCheapestStuff(stuff: Map<String, Pair<String, Double>>, kind: String): S
  * Например:
  *   canBuildFrom(listOf('a', 'b', 'o'), "baobab") -> true
  */
-fun canBuildFrom(chars: List<Char>, word: String): Boolean = (word.toLowerCase().toSet().intersect(chars.map { it.toLowerCase() }) == word.toLowerCase().toSet())
+fun canBuildFrom(chars: List<Char>, word: String): Boolean =
+    (word.toLowerCase().toSet().intersect(chars.map { it.toLowerCase() }) == word.toLowerCase().toSet())
 
 /**
  * Средняя (4 балла)
@@ -213,9 +216,10 @@ fun canBuildFrom(chars: List<Char>, word: String): Boolean = (word.toLowerCase()
  */
 fun extractRepeats(list: List<String>): Map<String, Int> {
     val result = mutableMapOf<String, Int>()
-    for (i in list.indices)
+    for (i in list.indices) {
         if (!result.containsKey(list[i])) result[list[i]] = 1
         else result[list[i]] = result.getValue(list[i]) + 1
+    }
     return result.filterValues { it > 1 }
 }
 
@@ -287,8 +291,12 @@ fun propagateHandshakes(friends: Map<String, Set<String>>): Map<String, Set<Stri
  *   findSumOfTwo(listOf(1, 2, 3), 6) -> Pair(-1, -1)
  */
 fun findSumOfTwo(list: List<Int>, number: Int): Pair<Int, Int> {
-    for (i in list.indices) if ((number - list[i] in list) && (i != list.indexOf(number - list[i])))
-        return Pair(minOf(i, list.indexOf(number - list[i])), maxOf(i, list.indexOf(number - list[i])))
+    val mutablemap = mutableMapOf<Int, Int>()
+    for (i in list.indices) {
+        if (mutablemap[number - list[i]] != null)
+            return mutablemap[number - list[i]]!! to i
+        else mutablemap[list[i]] = i
+    }
     return Pair(-1, -1)
 }
 
