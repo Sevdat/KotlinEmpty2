@@ -47,6 +47,7 @@
 исключение IllegalArgumentException, при невозможности
 
 прочитать файл выбрасывать исключение IOException.
+*/
 
 fun main() {
 
