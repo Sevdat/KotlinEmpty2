@@ -127,9 +127,10 @@ fun bestLongJump(jumps: String): Int {
         return -1
     val parts = Regex("""[\s\-%]""").split(jumps)
     var emptiness = -1
-    for (part in parts)
+    for (part in parts){
         if ((part.isNotEmpty()) && (part.toInt() > emptiness))
             emptiness = part.toInt()
+    }
     return emptiness
 }
 
