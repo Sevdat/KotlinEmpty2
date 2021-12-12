@@ -102,6 +102,12 @@ fun countSubstrings(inputName: String, substrings: List<String>): Map<String, In
  */
 fun sibilants(inputName: String, outputName: String) {
     val text = File(inputName).readText()
+    if (text.length < 2) {
+        val bw = File(outputName).bufferedWriter()
+        bw.write(text)
+        bw.close()
+        return
+    }
     val sb = StringBuilder()
     sb.append(text[0])
     for (i in 1 until text.length) {
