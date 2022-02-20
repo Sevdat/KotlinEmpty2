@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+@file:Suppress("UNUSED_PARAMETER")
+
+>>>>>>> c16a964 (try)
 package lesson11.task1
 
 /**

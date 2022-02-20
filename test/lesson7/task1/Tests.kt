@@ -68,7 +68,11 @@ Basic, Ruby, Swift.
 и не надо при этом никуда торопиться___
             """.trimIndent()
         )
+<<<<<<< HEAD
         File("temp.txt").delete()
+=======
+//        File("temp.txt").delete()
+>>>>>>> c16a964 (try)
     }
 
     @Test

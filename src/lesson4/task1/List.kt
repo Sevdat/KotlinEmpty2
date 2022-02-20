@@ -3,6 +3,10 @@
 package lesson4.task1
 
 import lesson1.task1.discriminant
+<<<<<<< HEAD
+=======
+import kotlin.math.pow
+>>>>>>> c16a964 (try)
 import kotlin.math.sqrt
 
 // Урок 4: списки
@@ -98,7 +102,11 @@ fun squares(vararg array: Int) = squares(array.toList()).toTypedArray()
  * "А роза упала на лапу Азора" является палиндромом.
  */
 fun isPalindrome(str: String): Boolean {
+<<<<<<< HEAD
     val lowerCase = str.toLowerCase().filter { it != ' ' }
+=======
+    val lowerCase = str.lowercase().filter { it != ' ' }
+>>>>>>> c16a964 (try)
     for (i in 0..lowerCase.length / 2) {
         if (lowerCase[i] != lowerCase[lowerCase.length - i - 1]) return false
     }
@@ -120,14 +128,30 @@ fun buildSumExample(list: List<Int>) = list.joinToString(separator = " + ", post
  * по формуле abs = sqrt(a1^2 + a2^2 + ... + aN^2).
  * Модуль пустого вектора считать равным 0.0.
  */
+<<<<<<< HEAD
 fun abs(v: List<Double>): Double = TODO()
+=======
+fun abs(v: List<Double>): Double {
+    var x = 0.0
+    if (v.isEmpty()) return 0.0
+    for (i in v) {
+        x += i.pow(2.0)
+    }
+    return sqrt(x)
+}
+>>>>>>> c16a964 (try)
 
 /**
  * Простая (2 балла)
  *
  * Рассчитать среднее арифметическое элементов списка list. Вернуть 0.0, если список пуст
  */
+<<<<<<< HEAD
 fun mean(list: List<Double>): Double = TODO()
+=======
+fun mean(list: List<Double>): Double =
+    if (list.isNotEmpty()) (list.sum() / list.size) else 0.00
+>>>>>>> c16a964 (try)
 
 /**
  * Средняя (3 балла)
@@ -137,7 +161,17 @@ fun mean(list: List<Double>): Double = TODO()
  *
  * Обратите внимание, что данная функция должна изменять содержание списка list, а не его копии.
  */
+<<<<<<< HEAD
 fun center(list: MutableList<Double>): MutableList<Double> = TODO()
+=======
+fun center(list: MutableList<Double>): MutableList<Double> {
+    val a = mean(list)
+    for (numbers in list.indices) {
+        list[numbers] -= a
+    }
+    return list
+}
+>>>>>>> c16a964 (try)
 
 /**
  * Средняя (3 балла)
@@ -146,7 +180,17 @@ fun center(list: MutableList<Double>): MutableList<Double> = TODO()
  * представленные в виде списков a и b. Скалярное произведение считать по формуле:
  * C = a1b1 + a2b2 + ... + aNbN. Произведение пустых векторов считать равным 0.
  */
+<<<<<<< HEAD
 fun times(a: List<Int>, b: List<Int>): Int = TODO()
+=======
+fun times(a: List<Int>, b: List<Int>): Int {
+    var c = 0
+    for (i in a.indices) {
+        c += a[i] * b[i]
+    }
+    return c
+}
+>>>>>>> c16a964 (try)
 
 /**
  * Средняя (3 балла)
@@ -177,7 +221,22 @@ fun accumulate(list: MutableList<Int>): MutableList<Int> = TODO()
  * Результат разложения вернуть в виде списка множителей, например 75 -> (3, 5, 5).
  * Множители в списке должны располагаться по возрастанию.
  */
+<<<<<<< HEAD
 fun factorize(n: Int): List<Int> = TODO()
+=======
+fun factorize(n: Int): List<Int> {
+    var a = 2
+    var num = n
+    val list = mutableListOf<Int>()
+    while (num != 1) {
+        if (num % a == 0) {
+            num /= a
+            list.add(a)
+        } else a++
+    }
+    return list
+}
+>>>>>>> c16a964 (try)
 
 /**
  * Сложная (4 балла)
@@ -186,7 +245,11 @@ fun factorize(n: Int): List<Int> = TODO()
  * Результат разложения вернуть в виде строки, например 75 -> 3*5*5
  * Множители в результирующей строке должны располагаться по возрастанию.
  */
+<<<<<<< HEAD
 fun factorizeToString(n: Int): String = TODO()
+=======
+fun factorizeToString(n: Int): String = factorize(n).joinToString("*")
+>>>>>>> c16a964 (try)
 
 /**
  * Средняя (3 балла)

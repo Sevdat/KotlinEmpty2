@@ -3,6 +3,12 @@
 package lesson2.task2
 
 import lesson1.task1.sqr
+<<<<<<< HEAD
+=======
+import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
+>>>>>>> c16a964 (try)
 
 /**
  * Пример
@@ -18,7 +24,17 @@ fun pointInsideCircle(x: Double, y: Double, x0: Double, y0: Double, r: Double) =
  * Четырехзначное число назовем счастливым, если сумма первых двух ее цифр равна сумме двух последних.
  * Определить, счастливое ли заданное число, вернуть true, если это так.
  */
+<<<<<<< HEAD
 fun isNumberHappy(number: Int): Boolean = TODO()
+=======
+fun isNumberHappy(number: Int): Boolean {
+    val firstNumber = number / 1000
+    val lastNumber = number % 10
+    val secondNumber = number / 100 % 10
+    val thirdNumber = number / 10 % 10
+    return firstNumber + secondNumber == thirdNumber + lastNumber
+}
+>>>>>>> c16a964 (try)
 
 /**
  * Простая (2 балла)
@@ -27,7 +43,12 @@ fun isNumberHappy(number: Int): Boolean = TODO()
  * Определить, угрожают ли они друг другу. Вернуть true, если угрожают.
  * Считать, что ферзи не могут загораживать друг друга.
  */
+<<<<<<< HEAD
 fun queenThreatens(x1: Int, y1: Int, x2: Int, y2: Int): Boolean = TODO()
+=======
+fun queenThreatens(x1: Int, y1: Int, x2: Int, y2: Int): Boolean =
+    (abs(y1 - y2) == abs(x1 - x2)) || (x1 == x2 || y1 == y2)
+>>>>>>> c16a964 (try)
 
 
 /**
@@ -36,7 +57,20 @@ fun queenThreatens(x1: Int, y1: Int, x2: Int, y2: Int): Boolean = TODO()
  * Дан номер месяца (от 1 до 12 включительно) и год (положительный).
  * Вернуть число дней в этом месяце этого года по григорианскому календарю.
  */
+<<<<<<< HEAD
 fun daysInMonth(month: Int, year: Int): Int = TODO()
+=======
+fun daysInMonth(month: Int, year: Int): Int {
+    if (month == 2) {
+        return if (((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0))) 29
+        else 28
+    }
+    return if ((month == 1) || (month == 3) || (month == 5) || (month == 7) ||
+        (month == 8) || (month == 10) || (month == 12)
+    ) 31
+    else 30
+}
+>>>>>>> c16a964 (try)
 
 /**
  * Простая (2 балла)
@@ -59,4 +93,17 @@ fun circleInside(
  * кирпич 4 х 4 х 4 пройдёт через отверстие 4 х 4.
  * Вернуть true, если кирпич пройдёт
  */
+<<<<<<< HEAD
 fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean = TODO()
+=======
+fun brickPasses(a: Int, b: Int, c: Int, r: Int, s: Int): Boolean {
+
+    return when {
+        max(a, b) <= max(r, s) && min(a, b) <= min(r, s) -> true
+        max(a, c) <= max(r, s) && min(a, c) <= min(r, s) -> true
+        max(b, c) <= max(r, s) && min(b, c) <= min(r, s) -> true
+        else -> false
+
+    }
+}
+>>>>>>> c16a964 (try)
