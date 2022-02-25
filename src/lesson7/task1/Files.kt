@@ -89,8 +89,70 @@ fun deleteMarked(inputName: String, outputName: String) {
  * Регистр букв игнорировать, то есть буквы е и Е считать одинаковыми.
  *
  */
-fun countSubstrings(inputName: String, substrings: List<String>): Map<String, Int> = TODO()
+fun countSubstrings(inputName: String, substrings: List<String>): Map<String, Int> {
+    var mapStrInt = mutableMapOf<String,Int>()
+    var count = 0
+    val n = File(inputName).readLines()
+    var character = ' '
+    var subcount = 0
+    while (subcount != substrings.size) {
+        var line = 0
+        while (line != n.size) {
 
+            var letter = 0
+            var box = ""
+            while (letter != n[line].length) {
+
+                character = n[line][letter].lowercaseChar()
+                box += "$character"
+                if (box.length == substrings[subcount].length + 1) box = box.drop(1)
+                if (box == substrings[subcount].lowercase()) count += 1
+                letter += 1
+            }
+            line += 1
+        }
+        mapStrInt[substrings[subcount]] = count
+        subcount += 1
+        count = 0
+    }
+    return mapStrInt
+}
+//var x = 0
+//val n = File(inputName).readLines()[3]
+//var j = ' '
+//var l = "ме"
+//println(n)
+//while (x != 1) {
+//
+//    var k = 0
+//    var h = ""
+//    var y = ""
+//    while (k != n.length) {
+//        j = n[k]
+//        h += "$j"
+//        if (h.length == substrings[x].length + 1) h = h.drop(1)
+//        if (h == substrings[x]) y += 1
+//        k += 1
+//    }
+//    println(h)
+//    x += 1
+//}
+//
+//
+//return mapOf()
+//}
+//    var x = 0
+//    var d = ""
+//    while (x != substrings.size) {
+//        d += "${substrings[x]}\n"
+//        x += 1
+//    }
+//    File("yolo.txt").createNewFile()
+//    File("yolo.txt").printWriter().use { e -> e.println(d) }
+//   var n = File("yolo.txt").readText().lines()
+//
+//    println(n[0])
+//    return mapOf()
 
 /**
  * Средняя (12 баллов)
