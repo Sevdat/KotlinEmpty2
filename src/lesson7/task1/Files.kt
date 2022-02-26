@@ -90,7 +90,7 @@ fun deleteMarked(inputName: String, outputName: String) {
  *
  */
 fun countSubstrings(inputName: String, substrings: List<String>): Map<String, Int> {
-    var mapStrInt = mutableMapOf<String,Int>()
+    var mapStrInt = mutableMapOf<String, Int>()
     var count = 0
     val n = File(inputName).readLines()
     var character = ' '
@@ -168,8 +168,78 @@ fun countSubstrings(inputName: String, substrings: List<String>): Map<String, In
  *
  */
 fun sibilants(inputName: String, outputName: String) {
-    TODO()
+    val strlist = File(inputName).readLines()
+    var line = 0
+    val firstchar = listOf('Ж', 'Ч', 'Ш', 'Щ')
+    val wrongchar = listOf('Ы', 'Я', 'Ю')
+    val rightchar = listOf('И', 'А', 'У')
+    var srtcollect = ""
+    while (line != strlist.size) {
+        var position = 0
+        var character = ""
+        var letter = ""
+        while (position != strlist[line].length) {
+            character += strlist[line][position]
+            if (character.length == 3) character = character.drop(1)
+
+            var first = 0
+            while (first != firstchar.size) {
+                var wrong = 0
+                while (wrong != rightchar.size) {
+                    when {
+                        character[0] == firstchar[first] || character[0] == firstchar[first].lowercaseChar() ->
+                            when {
+                                (character[1] == wrongchar[wrong]) ->
+                                    character = character.substring(0, 1) + rightchar[wrong]
+
+                                (character[1] == wrongchar[wrong].lowercaseChar()) ->
+                                    character = character.substring(0, 1) + rightchar[wrong].lowercaseChar()
+                            }
+                    }
+                    wrong += 1
+                }
+                first += 1
+            }
+
+            letter += if (character.length == 2) character.drop(1) else character
+            position += 1
+        }
+
+        srtcollect += "$letter\n"
+        File(outputName).printWriter().use { e -> e.println(srtcollect.trim()) }
+        letter = ""
+        line += 1
+    }
+
 }
+//    val d = n[x].toCharArray()
+//    var j = when {
+//        (d[s] == 'Ы' || d[s] == 'Ы'.lowercaseChar()) -> d[s] = 'И'
+//        (d[s] == 'Я' || d[s] == 'Я'.lowercaseChar()) -> d[s] = 'А'
+//        (d[s] == 'Ю' || d[s] == 'Ю'.lowercaseChar()) -> d[s] = 'У'
+//        else -> ' '
+//    }
+//    when {
+//        (d[s] == 'Ж' || d[s] == 'Ж'.lowercaseChar()) -> j
+//        (d[s] == 'Ч' || d[s] == 'Ч'.lowercaseChar()) -> j
+//        (d[s] == 'Ш' || d[s] == 'Ш'.lowercaseChar()) -> j
+//        (d[s] == 'Щ' || d[s] == 'Щ'.lowercaseChar()) -> j
+//    }
+//    s += 1
+//}
+//            k = when (d) {
+//                'Ж' -> j
+//                'Ч' -> j
+//                'Ш' -> j
+//                'Щ' -> j
+//                else -> ' '
+//            }
+//            j = when (j) {
+//                'Ы' -> 'И'
+//                'Я' -> 'А'
+//                'Ю' -> 'У'
+//                else -> ' '
+//            }
 
 /**
  * Средняя (15 баллов)
