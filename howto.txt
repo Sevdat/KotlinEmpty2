@@ -1,0 +1,25 @@
+git clone https://github.com/Sevdat/KotlinEmpty2
+cd KotlinEmpty2
+git remote add upstream-my https://github.com/Sevdat/KotlinAsFirst2021-Individual-Assignment
+git fetch upstream-my
+git rev-parse HEAD
+b33bd452e036bbd5538ebb3eee68bab2e7209be8
+git rebase --onto master d535f3592006b8f2593c9f881d72c05164aadc13 upstream-my/master
+git add *.kt *.adoc *.xml *.md
+git status
+git restore --staged Forentrence/src/data Forentrence/src/program.kt Forentrence/src/test.kt
+git restore Forentrence/src/data Forentrence/src/program.kt Forentrence/src/test.kt
+git rebase --continue
+git add src/lesson7/task1/Files.kt test/lesson7/task1/Tests.kt
+git rebase --continue
+git branch backport
+git checkout master
+
+git remote add upstream-theirs https://github.com/Fr0ntal/KotlinAsFirst2021
+git fetch upstream-theirs
+git merge -s ours upstream-theirs/master
+git remote -v
+git remote -v > remotes
+git add remotes
+git commit -m "Please Work"
+git push --all origin
