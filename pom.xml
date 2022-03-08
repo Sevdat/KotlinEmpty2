@@ -6,22 +6,41 @@
 
     <groupId>ru.spbstu</groupId>
     <artifactId>kfirst</artifactId>
+<<<<<<< HEAD
     <version>20.0.0</version>
+=======
+    <version>21.0.0</version>
+>>>>>>> c16a964 (try)
 
     <name>kfirst</name>
 
     <repositories>
         <repository>
+<<<<<<< HEAD
             <id>bintray-vorpal-research-kotlin-maven</id>
             <name>vorpal-research-kotlin-maven</name>
             <url>http://dl.bintray.com/vorpal-research/kotlin-maven</url>
+=======
+            <id>github-kotlin-polytech-kotlin-maven</id>
+            <name>kotlin-polytech-kotlin-maven</name>
+            <url>https://maven.polytech.vorpal-research.science</url>
+        </repository>
+        <repository>
+            <id>github-vorpal-research-kotlin-maven</id>
+            <name>vorpal-research-kotlin-maven</name>
+            <url>https://maven.vorpal-research.science</url>
+>>>>>>> c16a964 (try)
         </repository>
     </repositories>
 
     <parent>
         <groupId>ru.spbstu</groupId>
         <artifactId>kfirst-bom</artifactId>
+<<<<<<< HEAD
         <version>20.0.0</version>
+=======
+        <version>21.0.0</version>
+>>>>>>> c16a964 (try)
     </parent>
 
     <build>
@@ -29,7 +48,11 @@
             <plugin>
                 <artifactId>kfirst-runner-plugin</artifactId>
                 <groupId>org.jetbrains.research</groupId>
+<<<<<<< HEAD
                 <version>20.0.0</version>
+=======
+                <version>21.0.0</version>
+>>>>>>> c16a964 (try)
                 <configuration>
                     <packages>
                         <package>lesson1.task1</package>

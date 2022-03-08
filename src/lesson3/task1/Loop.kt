@@ -72,7 +72,20 @@ fun digitCountInNumber(n: Int, m: Int): Int =
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
+<<<<<<< HEAD
 fun digitNumber(n: Int): Int = TODO()
+=======
+fun digitNumber(n: Int): Int {
+    var x = n
+    var a = 0
+    if (n == 0) return 1
+    while (x != 0) {
+        a += 1
+        x /= 10
+    }
+    return a
+}
+>>>>>>> c16a964 (try)
 
 /**
  * Простая (2 балла)
@@ -80,21 +93,52 @@ fun digitNumber(n: Int): Int = TODO()
  * Найти число Фибоначчи из ряда 1, 1, 2, 3, 5, 8, 13, 21, ... с номером n.
  * Ряд Фибоначчи определён следующим образом: fib(1) = 1, fib(2) = 1, fib(n+2) = fib(n) + fib(n+1)
  */
+<<<<<<< HEAD
 fun fib(n: Int): Int = TODO()
+=======
+fun fib(n: Int): Int {
+    if (n == 1 || n == 2) return 1
+    var x = 3
+    var num2 = 1
+    var num3 = 2
+    while (x != n) {
+        val num1 = num3
+        num3 += num2
+        num2 = num1
+        x++
+
+    }
+    return num3
+}
+>>>>>>> c16a964 (try)
 
 /**
  * Простая (2 балла)
  *
  * Для заданного числа n > 1 найти минимальный делитель, превышающий 1
  */
+<<<<<<< HEAD
 fun minDivisor(n: Int): Int = TODO()
+=======
+fun minDivisor(n: Int): Int {
+    var k = 2
+    while ((n % k != 0) && (k <= sqrt(n.toDouble()))) {
+        k++
+    }
+    return if (n % k == 0) k else n
+}
+>>>>>>> c16a964 (try)
 
 /**
  * Простая (2 балла)
  *
  * Для заданного числа n > 1 найти максимальный делитель, меньший n
  */
+<<<<<<< HEAD
 fun maxDivisor(n: Int): Int = TODO()
+=======
+fun maxDivisor(n: Int): Int = n / minDivisor(n)
+>>>>>>> c16a964 (try)
 
 /**
  * Простая (2 балла)
@@ -112,7 +156,19 @@ fun maxDivisor(n: Int): Int = TODO()
  * Написать функцию, которая находит, сколько шагов требуется для
  * этого для какого-либо начального X > 0.
  */
+<<<<<<< HEAD
 fun collatzSteps(x: Int): Int = TODO()
+=======
+fun collatzSteps(x: Int): Int {
+    var y = x
+    var k = 0
+    while (y != 1) {
+        if (y % 2 == 0) y /= 2 else y = 3 * y + 1
+        k++
+    }
+    return k++
+}
+>>>>>>> c16a964 (try)
 
 /**
  * Средняя (3 балла)
@@ -134,6 +190,7 @@ fun isCoPrime(m: Int, n: Int): Boolean = TODO()
 /**
  * Средняя (3 балла)
  *
+<<<<<<< HEAD
  * Для заданных чисел m и n, m <= n, определить, имеется ли хотя бы один точный квадрат между m и n,
  * то есть, существует ли такое целое k, что m <= k*k <= n.
  * Например, для интервала 21..28 21 <= 5*5 <= 28, а для интервала 51..61 квадрата не существует.
@@ -143,11 +200,27 @@ fun squareBetweenExists(m: Int, n: Int): Boolean = TODO()
 /**
  * Средняя (3 балла)
  *
+=======
+>>>>>>> c16a964 (try)
  * Поменять порядок цифр заданного числа n на обратный: 13478 -> 87431.
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
+<<<<<<< HEAD
 fun revert(n: Int): Int = TODO()
+=======
+fun revert(n: Int): Int {
+    var old = n
+    var new = 0
+
+    while (old > 0) {
+        new = new * 10 + old % 10
+        old /= 10
+
+    }
+    return new
+}
+>>>>>>> c16a964 (try)
 
 /**
  * Средняя (3 балла)

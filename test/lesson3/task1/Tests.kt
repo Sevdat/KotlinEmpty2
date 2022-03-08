@@ -159,6 +159,7 @@ class Tests {
 
     @Test
     @Tag("3")
+<<<<<<< HEAD
     fun squareBetweenExists() {
         assertTrue(squareBetweenExists(1, 1))
         assertTrue(squareBetweenExists(21, 28))
@@ -172,6 +173,8 @@ class Tests {
 
     @Test
     @Tag("3")
+=======
+>>>>>>> c16a964 (try)
     fun revert() {
         assertEquals(87431, revert(13478))
         assertEquals(0, revert(0))

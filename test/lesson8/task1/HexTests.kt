@@ -105,6 +105,7 @@ class HexTests {
     @Tag("5")
     fun pathBetweenHexes() {
         assertEquals(
+<<<<<<< HEAD
             listOf(
                 HexPoint(y = 2, x = 2),
                 HexPoint(y = 2, x = 3),
@@ -112,6 +113,9 @@ class HexTests {
                 HexPoint(y = 4, x = 3),
                 HexPoint(y = 5, x = 3)
             ), pathBetweenHexes(HexPoint(y = 2, x = 2), HexPoint(y = 5, x = 3))
+=======
+            5, pathBetweenHexes(HexPoint(y = 2, x = 2), HexPoint(y = 5, x = 3)).size
+>>>>>>> c16a964 (try)
         )
     }
 
